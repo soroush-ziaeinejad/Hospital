@@ -1,0 +1,346 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HospitalModel1.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="HospitalModel1StoreContainer">
+    <EntitySet Name="Accountants" EntityType="HospitalModel1.Store.Accountants" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Ambulance_service" EntityType="HospitalModel1.Store.Ambulance_service" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Ambulances" EntityType="HospitalModel1.Store.Ambulances" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Appoinments" EntityType="HospitalModel1.Store.Appoinments" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Bills" EntityType="HospitalModel1.Store.Bills" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Carriers" EntityType="HospitalModel1.Store.Carriers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Departments" EntityType="HospitalModel1.Store.Departments" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Doctors" EntityType="HospitalModel1.Store.Doctors" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Drivers" EntityType="HospitalModel1.Store.Drivers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Drugstore_Bill" EntityType="HospitalModel1.Store.Drugstore_Bill" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Drugstore_cashier" EntityType="HospitalModel1.Store.Drugstore_cashier" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Drugstores" EntityType="HospitalModel1.Store.Drugstores" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Logins" EntityType="HospitalModel1.Store.Logins" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Medicines" EntityType="HospitalModel1.Store.Medicines" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Nurses" EntityType="HospitalModel1.Store.Nurses" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Nursing_service" EntityType="HospitalModel1.Store.Nursing_service" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Operations" EntityType="HospitalModel1.Store.Operations" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Patients" EntityType="HospitalModel1.Store.Patients" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Payments" EntityType="HospitalModel1.Store.Payments" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Prescriptions" EntityType="HospitalModel1.Store.Prescriptions" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Receptionists" EntityType="HospitalModel1.Store.Receptionists" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Rooms" EntityType="HospitalModel1.Store.Rooms" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="securities" EntityType="HospitalModel1.Store.securities" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="servants" EntityType="HospitalModel1.Store.servants" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="sysdiagrams" EntityType="HospitalModel1.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Tests" EntityType="HospitalModel1.Store.Tests" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Warrants" EntityType="HospitalModel1.Store.Warrants" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Warrants1" EntityType="HospitalModel1.Store.Warrants1" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="Accountants">
+    <Key>
+      <PropertyRef Name="Act_id" />
+    </Key>
+    <Property Name="Act_id" Type="int" Nullable="false" />
+    <Property Name="Act_name" Type="nvarchar(max)" />
+    <Property Name="Act_LName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Act_age" Type="int" />
+    <Property Name="working_time" Type="time" />
+    <Property Name="Address" Type="nvarchar(max)" />
+    <Property Name="mobile_number" Type="nvarchar(max)" />
+    <Property Name="National_Code" Type="int" />
+    <Property Name="Gender" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsLogin" Type="binary" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="Ambulance_service">
+    <Key>
+      <PropertyRef Name="AS_id" />
+    </Key>
+    <Property Name="AS_id" Type="int" Nullable="false" />
+    <Property Name="AS_time" Type="time" />
+    <Property Name="AS_date" Type="datetime" />
+    <Property Name="PID" Type="int" />
+    <Property Name="Amb_id" Type="int" />
+    <Property Name="Driver_id" Type="int" />
+  </EntityType>
+  <EntityType Name="Ambulances">
+    <Key>
+      <PropertyRef Name="Amb_ID" />
+    </Key>
+    <Property Name="Amb_ID" Type="int" Nullable="false" />
+    <Property Name="Amb_Number" Type="int" Nullable="false" />
+    <Property Name="isFree" Type="binary" Nullable="false" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="Appoinments">
+    <Key>
+      <PropertyRef Name="Ap_id" />
+    </Key>
+    <Property Name="Ap_id" Type="int" Nullable="false" />
+    <Property Name="Ap_time" Type="time" />
+    <Property Name="Ap_date" Type="datetime" />
+    <Property Name="PID" Type="int" />
+    <Property Name="DID" Type="int" />
+    <Property Name="Rcp_id" Type="int" />
+  </EntityType>
+  <EntityType Name="Bills">
+    <Key>
+      <PropertyRef Name="Bill_ID" />
+    </Key>
+    <Property Name="Bill_ID" Type="int" Nullable="false" />
+    <Property Name="Bill_Total" Type="decimal" Precision="19" Scale="4" />
+    <Property Name="Bill_purpose" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="Carriers">
+    <Key>
+      <PropertyRef Name="Carrier_id" />
+    </Key>
+    <Property Name="Carrier_id" Type="int" Nullable="false" />
+    <Property Name="Salary" Type="decimal" Precision="19" Scale="4" />
+    <Property Name="DeptID" Type="int" />
+  </EntityType>
+  <EntityType Name="Departments">
+    <Key>
+      <PropertyRef Name="Dept_ID" />
+    </Key>
+    <Property Name="Dept_ID" Type="int" Nullable="false" />
+    <Property Name="Dept_Name" Type="nvarchar(max)" />
+    <Property Name="Manager_ID" Type="int" />
+  </EntityType>
+  <EntityType Name="Doctors">
+    <Key>
+      <PropertyRef Name="DID" />
+    </Key>
+    <Property Name="DID" Type="int" Nullable="false" />
+    <Property Name="Doc_name" Type="nvarchar(max)" />
+    <Property Name="Doc_Lname" Type="nvarchar(max)" />
+    <Property Name="PhoneNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="Gender" Type="nvarchar" MaxLength="50" />
+    <Property Name="Address" Type="nvarchar(max)" />
+    <Property Name="NationalCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="Specialization" Type="nvarchar(max)" />
+    <Property Name="Employment_date" Type="datetime" />
+    <Property Name="Salary" Type="int" />
+    <Property Name="Dept_ID" Type="int" />
+    <Property Name="IsLogin" Type="binary" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="Drivers">
+    <Key>
+      <PropertyRef Name="Driver_id" />
+    </Key>
+    <Property Name="Driver_id" Type="int" Nullable="false" />
+    <Property Name="Driver_name" Type="nvarchar(max)" />
+    <Property Name="Driver_number" Type="nvarchar" MaxLength="50" />
+    <Property Name="Working_time" Type="time" />
+    <Property Name="salary" Type="decimal" Precision="19" Scale="4" />
+    <Property Name="Amb_id" Type="int" />
+  </EntityType>
+  <EntityType Name="Drugstore_Bill">
+    <Key>
+      <PropertyRef Name="DS_Bill_id" />
+    </Key>
+    <Property Name="DS_Bill_id" Type="int" Nullable="false" />
+    <Property Name="DS_Bill_total" Type="decimal" Precision="19" Scale="4" />
+  </EntityType>
+  <EntityType Name="Drugstore_cashier">
+    <Key>
+      <PropertyRef Name="DSC_id" />
+    </Key>
+    <Property Name="DSC_id" Type="int" Nullable="false" />
+    <Property Name="DSC_name" Type="nvarchar(max)" />
+    <Property Name="salary" Type="decimal" Precision="19" Scale="4" />
+    <Property Name="DSC_number" Type="nvarchar" MaxLength="50" />
+    <Property Name="Working_shift" Type="varchar(max)" />
+    <Property Name="DS_id" Type="int" />
+  </EntityType>
+  <EntityType Name="Drugstores">
+    <Key>
+      <PropertyRef Name="DS_id" />
+    </Key>
+    <Property Name="DS_id" Type="int" Nullable="false" />
+    <Property Name="DS_name" Type="nvarchar(max)" />
+    <Property Name="DS_number" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Logins">
+    <Key>
+      <PropertyRef Name="LID" />
+    </Key>
+    <Property Name="LID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Username" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="access" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Medicines">
+    <Key>
+      <PropertyRef Name="Mdcn_ID" />
+    </Key>
+    <Property Name="Mdcn_ID" Type="int" Nullable="false" />
+    <Property Name="Mdcn_Name" Type="nvarchar(max)" />
+    <Property Name="Company" Type="nvarchar(max)" />
+    <Property Name="m_date" Type="datetime" />
+    <Property Name="e_date" Type="datetime" />
+    <Property Name="Price" Type="decimal" Precision="19" Scale="4" />
+  </EntityType>
+  <EntityType Name="Nurses">
+    <Key>
+      <PropertyRef Name="NID" />
+    </Key>
+    <Property Name="NID" Type="int" Nullable="false" />
+    <Property Name="Nurse_name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Nurse_Lname" Type="nvarchar" MaxLength="50" />
+    <Property Name="Birth_date" Type="datetime" />
+    <Property Name="City" Type="nvarchar" MaxLength="50" />
+    <Property Name="Address" Type="nvarchar(max)" />
+    <Property Name="Number" Type="nvarchar" MaxLength="50" />
+    <Property Name="National_Code" Type="nvarchar" MaxLength="50" />
+    <Property Name="Gender" Type="nvarchar" MaxLength="10" />
+    <Property Name="Marrige" Type="nvarchar" MaxLength="50" />
+    <Property Name="Employment_date" Type="datetime" />
+    <Property Name="Salary" Type="int" />
+    <Property Name="DeptID" Type="int" />
+    <Property Name="Shift" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Nursing_service">
+    <Key>
+      <PropertyRef Name="NID" />
+      <PropertyRef Name="PID" />
+      <PropertyRef Name="RID" />
+    </Key>
+    <Property Name="NID" Type="int" Nullable="false" />
+    <Property Name="PID" Type="int" Nullable="false" />
+    <Property Name="RID" Type="int" Nullable="false" />
+    <Property Name="date" Type="datetime" />
+    <Property Name="time" Type="time" />
+  </EntityType>
+  <EntityType Name="Operations">
+    <Key>
+      <PropertyRef Name="op_id" />
+    </Key>
+    <Property Name="op_id" Type="int" Nullable="false" />
+    <Property Name="op_date" Type="datetime" />
+    <Property Name="op_time" Type="time" />
+    <Property Name="op_room_number" Type="int" />
+    <Property Name="PID" Type="int" />
+    <Property Name="DID" Type="int" />
+  </EntityType>
+  <EntityType Name="Patients">
+    <Key>
+      <PropertyRef Name="PID" />
+    </Key>
+    <Property Name="PID" Type="int" Nullable="false" />
+    <Property Name="Patient_Name" Type="nvarchar(max)" />
+    <Property Name="Disease_type" Type="nvarchar" MaxLength="50" />
+    <Property Name="Date_of_Birth" Type="datetime" />
+    <Property Name="Phone_Number" Type="int" />
+    <Property Name="Blood_Type" Type="nvarchar" MaxLength="50" />
+    <Property Name="Weight" Type="int" />
+    <Property Name="Height" Type="int" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Gender" Type="nvarchar" MaxLength="50" />
+    <Property Name="Address" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Payments">
+    <Key>
+      <PropertyRef Name="pay_id" />
+    </Key>
+    <Property Name="pay_id" Type="int" Nullable="false" />
+    <Property Name="pay_type" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="pay_date" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Prescriptions">
+    <Key>
+      <PropertyRef Name="prs_id" />
+    </Key>
+    <Property Name="prs_id" Type="int" Nullable="false" />
+    <Property Name="date" Type="datetime" />
+    <Property Name="time" Type="time" />
+    <Property Name="PID" Type="int" />
+    <Property Name="DID" Type="int" />
+    <Property Name="Mdcn_ID" Type="int" />
+  </EntityType>
+  <EntityType Name="Receptionists">
+    <Key>
+      <PropertyRef Name="Rcp_id" />
+    </Key>
+    <Property Name="Rcp_id" Type="int" Nullable="false" />
+    <Property Name="RcpName" Type="nvarchar" MaxLength="50" />
+    <Property Name="RcpLname" Type="nvarchar" MaxLength="50" />
+    <Property Name="gender" Type="nvarchar" MaxLength="50" />
+    <Property Name="national_code" Type="nvarchar" MaxLength="50" />
+    <Property Name="Salary" Type="int" />
+    <Property Name="DeptID" Type="int" />
+    <Property Name="isLogin" Type="binary" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="Rooms">
+    <Key>
+      <PropertyRef Name="RID" />
+    </Key>
+    <Property Name="RID" Type="int" Nullable="false" />
+    <Property Name="Room_number" Type="int" />
+    <Property Name="type" Type="nvarchar(max)" />
+    <Property Name="DeptID" Type="int" />
+    <Property Name="Cost" Type="decimal" Precision="19" Scale="4" />
+  </EntityType>
+  <EntityType Name="securities">
+    <Key>
+      <PropertyRef Name="sec_ID" />
+    </Key>
+    <Property Name="sec_ID" Type="int" Nullable="false" />
+    <Property Name="sec_name" Type="nvarchar(max)" />
+    <Property Name="sec_Lname" Type="nvarchar" MaxLength="50" />
+    <Property Name="sec_number" Type="nvarchar" MaxLength="50" />
+    <Property Name="Working_time" Type="time" />
+    <Property Name="salary" Type="decimal" Precision="19" Scale="4" />
+    <Property Name="Dept_ID" Type="nchar" MaxLength="10" />
+    <Property Name="national_code" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="servants">
+    <Key>
+      <PropertyRef Name="servant_id" />
+    </Key>
+    <Property Name="servant_id" Type="int" Nullable="false" />
+    <Property Name="servant_name" Type="nvarchar(max)" />
+    <Property Name="servant_Lname" Type="nvarchar" MaxLength="50" />
+    <Property Name="servant_number" Type="nvarchar" MaxLength="50" />
+    <Property Name="Working_time" Type="nvarchar" MaxLength="50" />
+    <Property Name="salary" Type="decimal" Precision="19" Scale="4" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Tests">
+    <Key>
+      <PropertyRef Name="Test_id" />
+    </Key>
+    <Property Name="Test_id" Type="int" Nullable="false" />
+    <Property Name="Test_name" Type="nchar" MaxLength="10" />
+    <Property Name="Test_date" Type="datetime" />
+    <Property Name="Test_cost" Type="decimal" Precision="19" Scale="4" />
+    <Property Name="Reply_date" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Warrants">
+    <Key>
+      <PropertyRef Name="WID" />
+    </Key>
+    <Property Name="WID" Type="int" Nullable="false" />
+    <Property Name="Base_Salary" Type="int" />
+    <Property Name="Reg_Date" Type="datetime" />
+    <Property Name="LastChange" Type="datetime" />
+    <Property Name="Premium" Type="int" />
+    <Property Name="tax" Type="float" />
+    <Property Name="Premium_Sdate" Type="datetime" />
+    <Property Name="Premium_Fdate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Warrants1">
+    <Key>
+      <PropertyRef Name="WID" />
+    </Key>
+    <Property Name="WID" Type="int" Nullable="false" />
+    <Property Name="Base_Salary" Type="int" />
+    <Property Name="Reg_Date" Type="datetime" />
+    <Property Name="LastChange" Type="datetime" />
+    <Property Name="Premium" Type="int" />
+    <Property Name="tax" Type="float" />
+    <Property Name="Premium_Sdate" Type="datetime" />
+    <Property Name="Premium_Fdate" Type="datetime" />
+  </EntityType>
+</Schema>

@@ -1,0 +1,346 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HospitalModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="HospitalEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="Accountants" EntityType="HospitalModel.Accountant" />
+    <EntitySet Name="Ambulance_service" EntityType="HospitalModel.Ambulance_service" />
+    <EntitySet Name="Ambulances" EntityType="HospitalModel.Ambulance" />
+    <EntitySet Name="Appoinments" EntityType="HospitalModel.Appoinment" />
+    <EntitySet Name="Bills" EntityType="HospitalModel.Bill" />
+    <EntitySet Name="Carriers" EntityType="HospitalModel.Carrier" />
+    <EntitySet Name="Departments" EntityType="HospitalModel.Department" />
+    <EntitySet Name="Doctors" EntityType="HospitalModel.Doctor" />
+    <EntitySet Name="Drivers" EntityType="HospitalModel.Driver" />
+    <EntitySet Name="Drugstore_Bill" EntityType="HospitalModel.Drugstore_Bill" />
+    <EntitySet Name="Drugstore_cashier" EntityType="HospitalModel.Drugstore_cashier" />
+    <EntitySet Name="Drugstores" EntityType="HospitalModel.Drugstore" />
+    <EntitySet Name="Logins" EntityType="HospitalModel.Login" />
+    <EntitySet Name="Medicines" EntityType="HospitalModel.Medicine" />
+    <EntitySet Name="Nurses" EntityType="HospitalModel.Nurse" />
+    <EntitySet Name="Nursing_service" EntityType="HospitalModel.Nursing_service" />
+    <EntitySet Name="Operations" EntityType="HospitalModel.Operation" />
+    <EntitySet Name="Patients" EntityType="HospitalModel.Patient" />
+    <EntitySet Name="Payments" EntityType="HospitalModel.Payment" />
+    <EntitySet Name="Prescriptions" EntityType="HospitalModel.Prescription" />
+    <EntitySet Name="Receptionists" EntityType="HospitalModel.Receptionist" />
+    <EntitySet Name="Rooms" EntityType="HospitalModel.Room" />
+    <EntitySet Name="securities" EntityType="HospitalModel.security" />
+    <EntitySet Name="servants" EntityType="HospitalModel.servant" />
+    <EntitySet Name="sysdiagrams" EntityType="HospitalModel.sysdiagram" />
+    <EntitySet Name="Tests" EntityType="HospitalModel.Test" />
+    <EntitySet Name="Warrants" EntityType="HospitalModel.Warrant" />
+    <EntitySet Name="Warrants1" EntityType="HospitalModel.Warrants1" />
+  </EntityContainer>
+  <EntityType Name="Accountant">
+    <Key>
+      <PropertyRef Name="Act_id" />
+    </Key>
+    <Property Name="Act_id" Type="Int32" Nullable="false" />
+    <Property Name="Act_name" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Act_LName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Act_age" Type="Int32" />
+    <Property Name="working_time" Type="Time" Precision="7" />
+    <Property Name="Address" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="mobile_number" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="National_Code" Type="Int32" />
+    <Property Name="Gender" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="IsLogin" Type="Binary" MaxLength="1" FixedLength="true" />
+  </EntityType>
+  <EntityType Name="Ambulance_service">
+    <Key>
+      <PropertyRef Name="AS_id" />
+    </Key>
+    <Property Name="AS_id" Type="Int32" Nullable="false" />
+    <Property Name="AS_time" Type="Time" Precision="7" />
+    <Property Name="AS_date" Type="DateTime" Precision="3" />
+    <Property Name="PID" Type="Int32" />
+    <Property Name="Amb_id" Type="Int32" />
+    <Property Name="Driver_id" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Ambulance">
+    <Key>
+      <PropertyRef Name="Amb_ID" />
+    </Key>
+    <Property Name="Amb_ID" Type="Int32" Nullable="false" />
+    <Property Name="Amb_Number" Type="Int32" Nullable="false" />
+    <Property Name="isFree" Type="Binary" Nullable="false" MaxLength="1" FixedLength="true" />
+  </EntityType>
+  <EntityType Name="Appoinment">
+    <Key>
+      <PropertyRef Name="Ap_id" />
+    </Key>
+    <Property Name="Ap_id" Type="Int32" Nullable="false" />
+    <Property Name="Ap_time" Type="Time" Precision="7" />
+    <Property Name="Ap_date" Type="DateTime" Precision="3" />
+    <Property Name="PID" Type="Int32" />
+    <Property Name="DID" Type="Int32" />
+    <Property Name="Rcp_id" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Bill">
+    <Key>
+      <PropertyRef Name="Bill_ID" />
+    </Key>
+    <Property Name="Bill_ID" Type="Int32" Nullable="false" />
+    <Property Name="Bill_Total" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Bill_purpose" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+  </EntityType>
+  <EntityType Name="Carrier">
+    <Key>
+      <PropertyRef Name="Carrier_id" />
+    </Key>
+    <Property Name="Carrier_id" Type="Int32" Nullable="false" />
+    <Property Name="Salary" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="DeptID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Department">
+    <Key>
+      <PropertyRef Name="Dept_ID" />
+    </Key>
+    <Property Name="Dept_ID" Type="Int32" Nullable="false" />
+    <Property Name="Dept_Name" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Manager_ID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Doctor">
+    <Key>
+      <PropertyRef Name="DID" />
+    </Key>
+    <Property Name="DID" Type="Int32" Nullable="false" />
+    <Property Name="Doc_name" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Doc_Lname" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Gender" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Address" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="NationalCode" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Specialization" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Employment_date" Type="DateTime" Precision="3" />
+    <Property Name="Salary" Type="Int32" />
+    <Property Name="Dept_ID" Type="Int32" />
+    <Property Name="IsLogin" Type="Binary" MaxLength="1" FixedLength="true" />
+  </EntityType>
+  <EntityType Name="Driver">
+    <Key>
+      <PropertyRef Name="Driver_id" />
+    </Key>
+    <Property Name="Driver_id" Type="Int32" Nullable="false" />
+    <Property Name="Driver_name" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Driver_number" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Working_time" Type="Time" Precision="7" />
+    <Property Name="salary" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Amb_id" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Drugstore_Bill">
+    <Key>
+      <PropertyRef Name="DS_Bill_id" />
+    </Key>
+    <Property Name="DS_Bill_id" Type="Int32" Nullable="false" />
+    <Property Name="DS_Bill_total" Type="Decimal" Precision="19" Scale="4" />
+  </EntityType>
+  <EntityType Name="Drugstore_cashier">
+    <Key>
+      <PropertyRef Name="DSC_id" />
+    </Key>
+    <Property Name="DSC_id" Type="Int32" Nullable="false" />
+    <Property Name="DSC_name" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="salary" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="DSC_number" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Working_shift" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="DS_id" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Drugstore">
+    <Key>
+      <PropertyRef Name="DS_id" />
+    </Key>
+    <Property Name="DS_id" Type="Int32" Nullable="false" />
+    <Property Name="DS_name" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="DS_number" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Login">
+    <Key>
+      <PropertyRef Name="LID" />
+    </Key>
+    <Property Name="LID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Username" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="access" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Medicine">
+    <Key>
+      <PropertyRef Name="Mdcn_ID" />
+    </Key>
+    <Property Name="Mdcn_ID" Type="Int32" Nullable="false" />
+    <Property Name="Mdcn_Name" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Company" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="m_date" Type="DateTime" Precision="3" />
+    <Property Name="e_date" Type="DateTime" Precision="3" />
+    <Property Name="Price" Type="Decimal" Precision="19" Scale="4" />
+  </EntityType>
+  <EntityType Name="Nurse">
+    <Key>
+      <PropertyRef Name="NID" />
+    </Key>
+    <Property Name="NID" Type="Int32" Nullable="false" />
+    <Property Name="Nurse_name" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Nurse_Lname" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Birth_date" Type="DateTime" Precision="3" />
+    <Property Name="City" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Address" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Number" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="National_Code" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Gender" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+    <Property Name="Marrige" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Employment_date" Type="DateTime" Precision="3" />
+    <Property Name="Salary" Type="Int32" />
+    <Property Name="DeptID" Type="Int32" />
+    <Property Name="Shift" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Nursing_service">
+    <Key>
+      <PropertyRef Name="NID" />
+      <PropertyRef Name="PID" />
+      <PropertyRef Name="RID" />
+    </Key>
+    <Property Name="NID" Type="Int32" Nullable="false" />
+    <Property Name="PID" Type="Int32" Nullable="false" />
+    <Property Name="RID" Type="Int32" Nullable="false" />
+    <Property Name="date" Type="DateTime" Precision="3" />
+    <Property Name="time" Type="Time" Precision="7" />
+  </EntityType>
+  <EntityType Name="Operation">
+    <Key>
+      <PropertyRef Name="op_id" />
+    </Key>
+    <Property Name="op_id" Type="Int32" Nullable="false" />
+    <Property Name="op_date" Type="DateTime" Precision="3" />
+    <Property Name="op_time" Type="Time" Precision="7" />
+    <Property Name="op_room_number" Type="Int32" />
+    <Property Name="PID" Type="Int32" />
+    <Property Name="DID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Patient">
+    <Key>
+      <PropertyRef Name="PID" />
+    </Key>
+    <Property Name="PID" Type="Int32" Nullable="false" />
+    <Property Name="Patient_Name" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Disease_type" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Date_of_Birth" Type="DateTime" Precision="3" />
+    <Property Name="Phone_Number" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Blood_Type" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Weight" Type="Int32" />
+    <Property Name="Height" Type="Int32" />
+    <Property Name="Description" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Gender" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Address" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Payment">
+    <Key>
+      <PropertyRef Name="pay_id" />
+    </Key>
+    <Property Name="pay_id" Type="Int32" Nullable="false" />
+    <Property Name="pay_type" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="pay_date" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="Prescription">
+    <Key>
+      <PropertyRef Name="prs_id" />
+    </Key>
+    <Property Name="prs_id" Type="Int32" Nullable="false" />
+    <Property Name="date" Type="DateTime" Precision="3" />
+    <Property Name="time" Type="Time" Precision="7" />
+    <Property Name="PID" Type="Int32" />
+    <Property Name="DID" Type="Int32" />
+    <Property Name="Mdcn_ID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Receptionist">
+    <Key>
+      <PropertyRef Name="Rcp_id" />
+    </Key>
+    <Property Name="Rcp_id" Type="Int32" Nullable="false" />
+    <Property Name="RcpName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="RcpLname" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="gender" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="national_code" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Salary" Type="Int32" />
+    <Property Name="DeptID" Type="Int32" />
+    <Property Name="isLogin" Type="Binary" MaxLength="1" FixedLength="true" />
+  </EntityType>
+  <EntityType Name="Room">
+    <Key>
+      <PropertyRef Name="RID" />
+    </Key>
+    <Property Name="RID" Type="Int32" Nullable="false" />
+    <Property Name="Room_number" Type="Int32" />
+    <Property Name="type" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="DeptID" Type="Int32" />
+    <Property Name="Cost" Type="Decimal" Precision="19" Scale="4" />
+  </EntityType>
+  <EntityType Name="security">
+    <Key>
+      <PropertyRef Name="sec_ID" />
+    </Key>
+    <Property Name="sec_ID" Type="Int32" Nullable="false" />
+    <Property Name="sec_name" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="sec_Lname" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="sec_number" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Working_time" Type="Time" Precision="7" />
+    <Property Name="salary" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Dept_ID" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+    <Property Name="national_code" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="servant">
+    <Key>
+      <PropertyRef Name="servant_id" />
+    </Key>
+    <Property Name="servant_id" Type="Int32" Nullable="false" />
+    <Property Name="servant_name" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="servant_Lname" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="servant_number" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Working_time" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="salary" Type="Decimal" Precision="19" Scale="4" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Test">
+    <Key>
+      <PropertyRef Name="Test_id" />
+    </Key>
+    <Property Name="Test_id" Type="Int32" Nullable="false" />
+    <Property Name="Test_name" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+    <Property Name="Test_date" Type="DateTime" Precision="3" />
+    <Property Name="Test_cost" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Reply_date" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Warrant">
+    <Key>
+      <PropertyRef Name="WID" />
+    </Key>
+    <Property Name="WID" Type="Int32" Nullable="false" />
+    <Property Name="Base_Salary" Type="Int32" />
+    <Property Name="Reg_Date" Type="DateTime" Precision="3" />
+    <Property Name="LastChange" Type="DateTime" Precision="3" />
+    <Property Name="Premium" Type="Int32" />
+    <Property Name="tax" Type="Double" />
+    <Property Name="Premium_Sdate" Type="DateTime" Precision="3" />
+    <Property Name="Premium_Fdate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Warrants1">
+    <Key>
+      <PropertyRef Name="WID" />
+    </Key>
+    <Property Name="WID" Type="Int32" Nullable="false" />
+    <Property Name="Base_Salary" Type="Int32" />
+    <Property Name="Reg_Date" Type="DateTime" Precision="3" />
+    <Property Name="LastChange" Type="DateTime" Precision="3" />
+    <Property Name="Premium" Type="Int32" />
+    <Property Name="tax" Type="Double" />
+    <Property Name="Premium_Sdate" Type="DateTime" Precision="3" />
+    <Property Name="Premium_Fdate" Type="DateTime" Precision="3" />
+  </EntityType>
+</Schema>
